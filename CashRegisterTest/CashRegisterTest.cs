@@ -9,11 +9,13 @@ namespace CashRegisterTest
 		public void Should_process_execute_printing()
 		{
 			//given
-			var cashRegister = new CashRegister();
+			Printer printer = new Printer();
+			var cashRegister = new CashRegister(printer);
 			var purchase = new Purchase();
 			//when
 			cashRegister.Process(purchase);
 			//then
+			Assert.True(printer.HasPrinted);
 			//verify that cashRegister.process will trigger print
 		}
 	}
